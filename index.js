@@ -14,10 +14,13 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.get("/compile/C", (req, res) => {
+app.post("/compile/C", (req, res) => {
   try {
-    var code = req.body.code;
+    var { code } = req.body;
     var envData = { OS: "windows" };
+    if (!code) {
+      return res.status(400).send("No code provided");
+    }
     compiler.compileCPP(envData, code, function (data) {
       res.send(data).status(200);
       console.log(data);
@@ -28,10 +31,13 @@ app.get("/compile/C", (req, res) => {
   }
 });
 
-app.get("/compile/Java", (req, res) => {
+app.post("/compile/Java", (req, res) => {
   try {
-    var code = req.body.code;
+    var { code } = req.body;
     var envData = { OS: "windows" };
+    if (!code) {
+      return res.status(400).send("No code provided");
+    }
     compiler.compileJava(envData, code, function (data) {
       res.send(data).status(200);
       console.log(data);
