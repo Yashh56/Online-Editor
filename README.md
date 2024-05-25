@@ -10,7 +10,7 @@ A Online IDE which made in javascript (react & node). Anyone Can code in program
 To set up the project locally, follow these steps:
 
 ```bash
-https://github.com/Yashh56/Online-Editor.git
+git clone https://github.com/Yashh56/Online-Editor.git
 ```
 
 ```bash
